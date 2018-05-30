@@ -1,7 +1,5 @@
 FROM ubuntu:latest
 
-MAINTAINER Marcelo Gonçalves <marcelocg@gmail.com>
-
 # Elixir requires UTF-8
 RUN apt-get update && apt-get upgrade -y && apt-get install locales && locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
@@ -21,7 +19,7 @@ RUN apt-get install -y curl wget git make sudo \
     # http://blog.danielberkompas.com
     && touch /etc/init.d/couchdb \
     # install latest elixir package
-    && apt-get install -y elixir erlang-dev erlang-dialyzer erlang-parsetools \
+    && apt-get install -y elixir erlang-dev erlang-src erlang-dialyzer erlang-parsetools \
     # clean up after ourselves
     && apt-get clean
 
